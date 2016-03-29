@@ -1,2 +1,3 @@
 # Assignment_00
-This is a test to show how to submit assignments through GitHub
+
+My name is Jeffrey Arnold. I am an assistant Professor of Political Science and a Core Faculty Member of CSSS. 
