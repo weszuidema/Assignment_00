@@ -3,3 +3,5 @@ Testing git commit
 This should be staged now
 
 Commit test
+
+email test change
