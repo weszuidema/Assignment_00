@@ -16,7 +16,7 @@ data(iver)
 Functions
 
 ```{r}
-# Function example 1 - use verbs for function names
+# Function example 1 - Use verbs for function names
 verb <- function(argument1, argument2) {
   # do stuff
   print(argument1)
@@ -24,6 +24,35 @@ verb <- function(argument1, argument2) {
 }
 # Call verb
 verb("ey", "oh")
+
+# Functional example 2
+say_hi <- function(name) {
+  full_statement <- paste0("Hi! My name is ", name)
+  return(full_statement)
+}
+
+say_hi("Wesley")
+
+# Function example 3 - Get first digit
+get_first_digit <- function(variable) {
+  num_digits <- nchar(variable)
+  var_first_num <- variable %/% (10 ^ (nchar(variable) - 1))
+  return(var_first_num)
+}
+
+turnout$educate_new <- get_first_digit(turnout$educate)
+turnout$age_new <- get_first_digit(turnout$age)
+
+# Function example 4 - 
+peripherial_countries <- c("Portugal", "Italy", "Ireland", 
+                           "Cyprus", "Greece", "Spain")
+create_per_dummy <- function(country_variable) {
+  country_variable <- as.character(country_variable)
+  dummy_boolean <- country_variable %in% peripherial_countries
+  dummy_numeric <- as.numeric(dummy_boolean)
+  return(dummy_numeric)
+}
+
 ```
 
 Loops
