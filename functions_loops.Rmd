@@ -53,11 +53,81 @@ create_per_dummy <- function(country_variable) {
   return(dummy_numeric)
 }
 
+iver$per_dummy <- create_per_dummy(iver$cty)
+
+# Function example 5 - own project
+make_quantile_groups <- function(data, oldvar, newvar, prob) {
+  data <- data %>%
+    mutate(newvar = factor(as.numeric(
+      oldvar > quantile(data$oldvar, probs = prob, 
+                            na.rm = T))))
+  data <- mutate(data, newvar = ifelse(newvar == 0, "low", "high"))
+}
 ```
 
 Loops
 
 ```{r}
+for (each_element in here) { # Try to use meaningful names for the
+  # do something             #   "each_element" object
+  print(each_element)
+}
 
+list_numbers <- sample(x = 1:100, size = 10, replace = FALSE) # sample() function
+for (number in list_numbers) {
+  print(paste0("2 times ", number, " is ", number * 2))
+}
+```
+
+Imagine that we want to calculate the log of the variables povred and enp of the iver dataset. We can create a list with these two variable names and then, for each of them, find them in iver, calculate the log, and add the result as a new variable to the dataset.
+
+```{r}
+numeric_vars <- c("povred", "enp")
+for (variable in numeric_vars) {
+  y <- iver[,variable]
+  log_y <- log(y)
+  name_new_var <- paste0(variable, "_log")
+  iver[,name_new_var] <- log_y
+}
+```
+
+Conditional loops
+
+```{r}
+if (this) {
+  # do that
+} else if (that) {
+  # do something else
+} else {
+  #
+}
+
+some_numbers <- c(1, 4, 6, 10,12, 16, 45, 88, 102)
+for (number in some_numbers) {
+  if (number < 10) {
+    print(paste0(number, " is smaller than 10"))
+  } else if (number < 50) {
+    print(paste0(number, " is smaller than 50 but greater or equal to 10"))
+  } else {
+    print(paste0(number, " is greater than 50"))
+  }
+}
+```
+
+We previously calculated the log and added it to the dataset for the numeric variables in iver. To do that we first created a list with the numeric variables. This time we won’t create that list. Instead, we’ll use conditional execution to indicate that we only want to take the log of numeric variables.
+
+```{r}
+data(iver) # load the data set again
+iver <- as.data.frame(iver)
+for (variable in names(iver)) {
+  y <- iver[,variable]
+  if (is.numeric(y)) {
+    log_y <- log(y)
+    name_new_var <- paste0(variable, "_log")
+    iver[,name_new_var] <- log_y
+  } else{
+    print(paste0(variable, " is not a numeric variable."))
+  }
+}
 ```
 
