@@ -9,3 +9,5 @@ This is a test to show how to submit assignments through GitHub.
 Merge Conflict. You're welcome. -WZ
 
 This might be another chance for a merge conflict.
+
+I'm adding a line because Andreu told me to.
