@@ -1,3 +1,5 @@
 Testing git commit
 
 This should be staged now
+
+Commit test
