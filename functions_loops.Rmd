@@ -1,0 +1,34 @@
+---
+title: "classnotes_b"
+author: "Wesley Zuidema"
+date: "March 31, 2016"
+output: pdf_document
+---
+
+```{r}
+library(dplyr)
+library(uwpols501)
+data(turnout)
+data(iver)
+```
+
+
+Functions
+
+```{r}
+# Function example 1 - use verbs for function names
+verb <- function(argument1, argument2) {
+  # do stuff
+  print(argument1)
+  print(argument2)
+}
+# Call verb
+verb("ey", "oh")
+```
+
+Loops
+
+```{r}
+
+```
+
